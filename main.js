@@ -5,17 +5,6 @@ const postalCode = document.getElementById('postal-code');
 const country = document.getElementById('country');
 const password = document.getElementById('password');
 const confirmPassword = document.getElementById('confirm-password');
-
-email.addEventListener('input',  () => {
-    console.log(email.validity);
-  if (email.validity.typeMismatch) {
-    email.setCustomValidity('Please, provide correct e-mail address');
-  } else {
-    email.setCustomValidity('');
-  }
-});
-
-
 const postalCodeRef = {
     NG: {
         country: "Nigeria",
@@ -33,6 +22,26 @@ const postalCodeRef = {
         regex: /^[0-9]{4}$/,
     },
 };
+
+
+const inputsNodeList = document.querySelectorAll('input');
+
+inputsNodeList.forEach((input) => {
+    input.addEventListener('blur', () => {
+        console.log('blurred');
+        input.reportValidity();
+    });
+});
+
+email.addEventListener('input',  () => {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity('Please, provide correct e-mail address');
+  } else {
+    email.setCustomValidity('');
+  }
+});
+
+
 
 //Postal code validation
 postalCode.addEventListener('input',  () => {
