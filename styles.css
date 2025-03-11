@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.input-label {
+    margin-top: 5px;
+}
